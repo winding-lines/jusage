@@ -1,4 +1,4 @@
-package windinglines.jusage;
+package windinglines.jusage.simple;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,7 +35,7 @@ public class Indexer {
    * Index all the sub-folders of the _baseFolder and look for _packageName.
    *
    */
-  void build() throws IOException {
+  public void build() throws IOException {
 
     try (DirectoryStream<Path> folders = Files.newDirectoryStream(_baseFolder)) {
       for (Path folder : folders) {
@@ -54,7 +54,7 @@ public class Indexer {
    * Note: the serialization format is limited by libraries that can run
    * in native mode. For example I am not aware of any jdbc implementation.
    */
-  void write() {
+  public void write() {
     try (Writer writer = Files.newBufferedWriter(_dbPath)) {
       GsonBuilder builder = new GsonBuilder();
       builder.setPrettyPrinting();

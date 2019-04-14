@@ -1,30 +1,44 @@
-This project is mostly a proof of concept around building native code with graalvm.
+Grep like functionality for java projects. All the projects are assumed
+to be located in the same base folder.
 
 ## Description
 
-Native java binary to search for usages of a certain package across many projects. 
-All these projects are located in one base folder.
+This project is mostly a proof of concept. It is using two technologies to build
+self contained java applications:
 
-## Building
+- Native using [GraalVM](https://www.graalvm.org/)
+- One bundler jar using [Shadow](https://github.com/johnrengelman/shadow)
 
 
 You need gradle 5.3 and java 8 for building. 
 You can use [sdkman!](https://sdkman.io) to install them.
 
+## Native
 
-Once your dependencies are installed build using
+Once your dependencies are installed build the native application using the `nativeImage` task.
 
 ```gradle nativeImage```
 
-This uses the Palantir graal plugin to automatically download the Graal VM.
+This uses Palantir's graal plugin to automatically download the Graal VM.
 
-## Running
+Execute the binary application in the `build/graal` output folder.
 
 ```build/graal/jusage package-name some-folder```
 
 Then see jusage-reference.json in some-folder.
 
-## Development
+## Shadow
+
+To build the shadow application use the `shadowJar` task.
+
+```gradle shadowJar```
+
+Execute the self contained jar in the `build/lib` folder.
+
+```java -jar build/libs/jusage.jar package-name some-folder```
+
+
+# Development
 
 Build Intellij project files with 
 

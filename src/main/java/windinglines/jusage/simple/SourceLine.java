@@ -1,4 +1,4 @@
-package windinglines.jusage;
+package windinglines.jusage.simple;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

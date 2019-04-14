@@ -4,6 +4,7 @@
 package windinglines.jusage;
 
 import java.io.IOException;
+import windinglines.jusage.simple.Indexer;
 
 
 /**
@@ -12,7 +13,7 @@ import java.io.IOException;
  * - base_folder: contains subprojects to be analysed
  * - package: package of classes to be tracked
  */
-public class App {
+public class SimpleApp {
   public static void main(String[] args) {
     if (args.length != 2) {
       System.err.println("jusage: package base_folder");
