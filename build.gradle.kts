@@ -29,18 +29,19 @@ dependencies {
     implementation("com.google.guava:guava:27.0.1-jre")
     implementation("com.netflix.devinsight.rewrite:rewrite-core:1.2.0")
     implementation("com.google.code.gson:gson:2.8.5")
-
+    implementation("commons-cli:commons-cli:1.3.1")
+    compile(files("${System.getProperty("java.home")}/../lib/tools.jar"))
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
 }
 
 application {
     // Define the main class for the application
-    mainClassName = "windinglines.jusage.SimpleApp"
+    mainClassName = "com.windinglines.jusage.App"
 }
 
 graal {
-    mainClass("windinglines.jusage.SimpleApp")
+    mainClass("com.windinglines.jusage.SimpleApp")
     outputName("jusage")
     graalVersion("1.0.0-rc15")
 }
